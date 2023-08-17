@@ -1,0 +1,59 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="text-center mb-4">{{ title }}</h2>
+            <form (submit)="updateLaboratoryAssign()">
+              <div class="mb-3">
+                <label class="form-label">Fecha</label>
+                <input
+                  [(ngModel)]="LaboratoriesAssign.lab_assign_date"
+                  name="lab_assign_date"
+                  type="date"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Laboratorio</label>
+                <select [(ngModel)]="LaboratoriesAssign.laboratory" name="laboratory" class="form-select" [compareWith]="compareLaboratory">
+                    <option disabled value="">Seleccione el Laboratorio</option>
+                    <option *ngFor="let laboratory of Laboratories" [ngValue]="laboratory">{{ laboratory.lab_name }}</option>
+                </select>                   
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Docente</label>
+                <select [(ngModel)]="LaboratoriesAssign.teacher" name="teacher" class="form-select" [compareWith]="compareTeachers">
+                    <option disabled value="">Seleccione el Docente</option>
+                    <option *ngFor="let teacher of Teachers" [ngValue]="teacher">{{ teacher.teacher_first_name + ' '+ teacher.teacher_last_name }}</option>
+                </select>  
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Descripción</label>
+                <textarea
+                  [(ngModel)]="LaboratoriesAssign.lab_assign_description"
+                  name="lab_assign_description"
+                  class="form-control"
+                  placeholder="Descripción"
+                  rows="3"
+                  required
+                ></textarea>
+              </div>
+              <div class="d-flex justify-content-between">
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  onclick="window.history.back()"
+                >
+                  Cancelar
+                </button>
+                <button type="submit" class="btn btn-success">Guardar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

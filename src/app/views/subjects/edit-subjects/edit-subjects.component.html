@@ -1,0 +1,44 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="text-center mb-4">{{ title }}</h2>
+          <form (submit)="updateSubject()">
+            <div class="mb-3">
+              <label for="subject_name" class="form-label">Nombre</label>
+              <input
+                [(ngModel)]="Subject.subject_name"
+                name="subject_name"
+                class="form-control"
+                type="text"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="cedula" class="form-label">Creditos</label>
+              <input
+                [(ngModel)]="Subject.subject_credits"
+                name="subject_credits"
+                class="form-control"
+                type="number"
+                required
+              />
+            </div>
+
+            <div class="d-flex justify-content-between">
+              <button
+                type="button"
+                class="btn btn-danger"
+                onclick="window.history.back()"
+              >
+                Cancelar
+              </button>
+              <button type="submit" class="btn btn-success">Guardar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

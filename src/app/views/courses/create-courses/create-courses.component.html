@@ -1,0 +1,121 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="text-center mb-4">{{ title }}</h2>
+          <form (submit)="createCourse()">
+            <div class="mb-3">
+              <label class="form-label">Nombre</label>
+              <input
+                [(ngModel)]="Courses.course_name"
+                value="{{ Courses.course_name }}"
+                name="course_name"
+                type="text"
+                class="form-control"
+                placeholder="Nombre"
+              />
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label class="form-label">Numero Estudiantes</label>
+                  <input
+                    [(ngModel)]="Courses.course_students"
+                    value="{{ Courses.course_students }}"
+                    name="course_students"
+                    type="number"
+                    class="form-control"
+                    id="estudiantes"
+                    placeholder="Numero Estudiantes"
+                  />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label class="form-label">Semestres</label>
+                  <input
+                    [(ngModel)]="Courses.course_duration"
+                    value="{{ Courses.course_duration }}"
+                    name="course_duration"
+                    type="number"
+                    class="form-control"
+                    placeholder="Semestres"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label class="form-label">Carrera</label>
+                  <select
+                    [(ngModel)]="Courses.career"
+                    value="{{ Courses.career }}"
+                    name="career"
+                    class="form-select"
+                  >
+                    <option disabled selected value="">Seleccione la Carrera</option>
+                    <option
+                      *ngFor="let career of Careers"
+                      [value]="career.career_id"
+                    >
+                      {{ career.career_name }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label class="form-label">Paralelo</label>
+                  <select
+                    [(ngModel)]="Courses.course_parallel"
+                    value="{{ Courses.course_parallel }}"
+                    name="course_parallel"
+                    class="form-select"
+                  >
+                    <option disabled selected value="">Seleccione el paralelo</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                    <option value="F">E</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label class="form-label">Jornada</label>
+                  <select
+                    [(ngModel)]="Courses.course_shift"
+                    value="{{ Courses.course_shift }}"
+                    name="course_shift"
+                    class="form-select"
+                  >
+                    <option disabled selected value="">
+                      Seleccione la jornada
+                    </option>
+                    <option value="Matutino">Matutino</option>
+                    <option value="Vespertino">Vespertino</option>
+                    <option value="Nocturno">Nocturno</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between">
+              <button
+                type="button"
+                class="btn btn-danger"
+                onclick="window.history.back()"
+              >
+                Cancelar
+              </button>
+              <button type="submit" class="btn btn-success">Guardar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

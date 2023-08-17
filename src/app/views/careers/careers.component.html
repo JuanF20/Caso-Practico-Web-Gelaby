@@ -1,0 +1,62 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-body">
+          <h1 class="text-center mb-4">{{ title }}</h1>
+          <div class="d-flex justify-content-between">
+            <button
+              type="button"
+              routerLink="/careers/create-career"
+              class="btn btn-outline-success mb-3"
+            >
+              Nueva Carrera <span class="fas fa-plus"></span>
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-primary mb-3"
+              (click)="exportToPDF()"
+              title="Exportar a PDF"
+            >
+              <i class="fas fa-file-pdf"></i> Exportar
+            </button>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Id</th>
+                  <th>Nombre</th>
+                  <th>Siglas</th>
+                  <th>Semestres</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let career of Careers">
+                  <td>{{ career.career_id }}</td>
+                  <td>{{ career.career_name }}</td>
+                  <td>{{ career.career_acronym }}</td>
+                  <td>{{ career.career_duration }}</td>
+                  <td>
+                    <button type="button" [routerLink]="['/careers/edit-career/', career.career_id]"  class="btn btn-outline-primary">
+                      <span class="fas fa-edit"></span>
+                    </button>
+                    &nbsp;
+                    <button
+                      type="button"
+                      (click)="deleteCareer(career.career_id)"
+                      class="btn btn-outline-danger"
+                    >
+                      <span class="fas fa-trash-alt"></span>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

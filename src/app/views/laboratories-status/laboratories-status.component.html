@@ -1,0 +1,78 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <h1 class="text-center mb-4">{{ title }}</h1>
+          <div class="d-flex justify-content-between">
+            <button
+              type="button"
+              routerLink="/laboratories-status/create-laboratory-status"
+              class="btn btn-outline-success mb-3"
+            >
+              Nuevo estado de laboratorio <span class="fas fa-plus"></span>
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-primary mb-3"
+              (click)="exportToPDF()"
+              title="Exportar a PDF"
+            >
+              <i class="fas fa-file-pdf"></i> Exportar
+            </button>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Nº</th>
+                  <th>Fecha</th>
+                  <th>Laboratorio</th>
+                  <th>Estado</th>
+                  <th>Descripcion</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let laboratoryStatus of LaboratoriesStatus">
+                  <td>{{ laboratoryStatus.lab_status_id }}</td>
+                  <td>
+                    {{
+                      laboratoryStatus.lab_status_date
+                        | date : "EEEE dd MMMM yyyy"
+                    }}
+                  </td>
+                  <td>{{ laboratoryStatus.laboratory?.lab_name }}</td>
+                  <td>{{ laboratoryStatus.lab_status_detail }}</td>
+                  <td>{{ laboratoryStatus.lab_status_notes }}</td>
+                  <td>
+                    <button
+                      type="button"
+                      [routerLink]="[
+                        '/laboratories-status/edit-laboratory-status/',
+                        laboratoryStatus.lab_status_id
+                      ]"
+                      class="btn btn-outline-primary"
+                    >
+                      <span class="fas fa-edit"></span>
+                    </button>
+                    &nbsp;
+                    <button
+                      type="button"
+                      (click)="
+                        deleteLaboratoryStatus(laboratoryStatus.lab_status_id)
+                      "
+                      class="btn btn-outline-danger"
+                    >
+                      <span class="fas fa-trash-alt"></span>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,108 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/home"
+      ><img
+        src="../../assets/img/logos/Logo GELABY NAVBAR.png"
+        width="50"
+        height="50"
+        alt="Logo"
+      />
+      GELABY</a
+    >
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/home">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/users">Usuarios</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Docente
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" href="/subjects">Asignaturas</a>
+            </li>
+            <li><a class="dropdown-item" href="/careers">Carreras</a></li>
+            <li><a class="dropdown-item" href="/courses">Cursos</a></li>
+            <li><a class="dropdown-item" href="/teachers">Docentes</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li>
+              <a class="dropdown-item" href="/teachers-details"
+                >Docente Detalle</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Laboratorios
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" href="/laboratories">Laboratorios</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="/laboratories-status"
+                >Estado Laboratorio</a
+              >
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+            <li>
+              <a class="dropdown-item" href="/laboratories-assign"
+                >Asignación de Laboratorio</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Calendarios
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" href="/calendar-teachers">Calendario Docentes</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="/calendar-laboratories">Calendario Laboratorios</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <div class="d-flex" role="search">
+        <a routerLink="/logout" class="btn btn-secondary">Cerrar Sesión</a>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,65 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <h1 class="text-center mb-4">{{title}}</h1>
+            <div class="d-flex justify-content-between">
+              <button
+                type="button"
+                routerLink="/teachers-details/create-teacher-detail"
+                class="btn btn-outline-success mb-3"
+              >
+                Nuevo detalle de docente <span class="fas fa-plus"></span>
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-primary mb-3"
+                (click)="exportToPDF()"
+                title="Exportar a PDF"
+              >
+                <i class="fas fa-file-pdf"></i> Exportar
+              </button>
+            </div>
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Nº</th>
+                    <th>Fecha</th>
+                    <th>Hora de inicio</th>
+                    <th>Hora de fin</th>
+                    <th>Asignatura</th>
+                    <th>Curso</th>
+                    <th>Profesor</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let teacherDetail of TeacherDetails">
+                    <td>{{ teacherDetail.teacher_detail_id }}</td>
+                    <td>{{ teacherDetail.teacher_detail_date | date:'EEEE dd MMMM yyyy' }}</td>
+                    <td>{{ teacherDetail.teacher_detail_start_time }}</td>
+                    <td>{{ teacherDetail.teacher_detail_end_time }}</td>
+                    <td>{{ teacherDetail.subject?.subject_name }}</td>
+                    <td>{{ teacherDetail.course?.course_name }}</td>
+                    <td>{{ teacherDetail.teacher?.teacher_first_name ? (teacherDetail.teacher.teacher_first_name + ' ' + teacherDetail.teacher.teacher_last_name) : '' }}</td>
+                    <td>
+                      <button type="button" [routerLink]="['/teachers-details/edit-teacher-detail/', teacherDetail.teacher_detail_id]" class="btn btn-outline-primary">
+                        <span class="fas fa-edit"></span>
+                      </button>
+                      &nbsp;
+                      <button type="button" (click)="deleteTeacherDetail(teacherDetail.teacher_detail_id)" class="btn btn-outline-danger">
+                        <span class="fas fa-trash-alt"></span>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

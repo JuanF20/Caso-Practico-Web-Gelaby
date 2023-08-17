@@ -1,0 +1,68 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <h1 class="text-center mb-4">{{ title }}</h1>
+          <div class="d-flex justify-content-between">
+            <button
+              type="button"
+              routerLink="/courses/create-course"
+              class="btn btn-outline-success mb-3"
+            >
+              Nuevo Curso <span class="fas fa-plus"></span>
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-primary mb-3"
+              (click)="exportToPDF()"
+              title="Exportar a PDF"
+            >
+              <i class="fas fa-file-pdf"></i> Exportar
+            </button>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Id</th>
+                  <th>Nombre</th>
+                  <th>Estudiantes</th>
+                  <th>Semestres</th>
+                  <th>Carrera</th>
+                  <th>Paralelo</th>
+                  <th>Jornada</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let course of Courses">
+                  <td>{{ course.course_id }}</td>
+                  <td>{{ course.course_name }}</td>
+                  <td>{{ course.course_students }}</td>
+                  <td>{{ course.course_duration }}</td>
+                  <td>{{ course.career?.career_name }}</td>
+                  <td>{{ course.course_parallel }}</td>
+                  <td>{{ course.course_shift }}</td>
+                  <td>
+                    <button
+                      type="button"
+                      [routerLink]="['/courses/edit-course/', course.course_id]"
+                      class="btn btn-outline-primary"
+                    >
+                      <span class="fas fa-edit"></span>
+                    </button>
+                    &nbsp;
+                    <button type="button" (click)="deleteCourse(course.course_id)" class="btn btn-outline-danger">
+                      <span class="fas fa-trash-alt"></span>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

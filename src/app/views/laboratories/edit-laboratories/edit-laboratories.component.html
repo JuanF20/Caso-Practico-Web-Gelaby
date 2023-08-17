@@ -1,0 +1,60 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="text-center mb-4">{{ title }}</h2>
+            <form (submit)="updateLaboratory()">
+              <div class="mb-3">
+                <label class="form-label">Nombre</label>
+                <input
+                  [(ngModel)]="Laboratories.lab_name"
+                  value="{{ Laboratories.lab_name }}"
+                  name="lab_name"
+                  type="text"
+                  class="form-control"
+                  placeholder="Nombre"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Computadoras</label>
+                <input
+                  [(ngModel)]="Laboratories.lab_computers"
+                  value="{{ Laboratories.lab_computers }}"
+                  name="lab_computers"
+                  type="number"
+                  class="form-control"
+                  placeholder="Computadoras"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Descripción</label>
+                <textarea
+                  [(ngModel)]="Laboratories.lab_description"
+                  value="{{ Laboratories.lab_description }}"
+                  name="lab_description"
+                  class="form-control"
+                  rows="3"
+                  placeholder="Descripción"
+                  required
+                ></textarea>
+              </div>
+              <div class="d-flex justify-content-between">
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  onclick="window.history.back()"
+                >
+                  Cancelar
+                </button>
+                <button type="submit" class="btn btn-success">Guardar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
